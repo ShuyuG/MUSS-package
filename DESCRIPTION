@@ -1,0 +1,24 @@
+Package: MUSS
+Title: Spike and Slab Variable Selector under Matrix Uncertainty
+Version: 1.0.0
+Authors@R: 
+    person("Shuyu", "Guo", email = "guo_sy@outlook.com", role = c("aut", "cre"))
+Description: In high-dimensional sparse regression with measurement errors in variables, assuming the 
+   errors are Normally distributed with mean 0 and errors for each variable have a specific variance, 
+   then 'MUSS' can conduct variable selection for such case. 'MUSS' select variables by assuming the 
+   regression coefficients have spike and slab priors. 'MUSS' works under EM framework, where indicators 
+   of spike-slab priors and the unknown true design matrix are treated as latent variables. To avoid 
+   the effect of inappropriate choices of spike and slab scale parameters on variable selection, 
+   the final selected regression parameters are obtained following a decreasing sequence of spike 
+   parameters. The path of variable selection can be displayed by function from 'MUSS' package.
+License: GPL-3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+LinkingTo: 
+    Rcpp, RcppEigen
+Imports: 
+    Rcpp, RcppEigen, ggplot2, reshape2, stats, MASS
+Suggests: 
+    knitr, rmarkdown, SSLASSO, glmnet
+VignetteBuilder: knitr
