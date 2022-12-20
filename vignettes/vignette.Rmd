@@ -235,7 +235,6 @@ Plot
 ```
 
 
-\\
 
 Paths of parameters can be obtained from the `pathPlot`. The default choice is `beta`. If the prior is chosen to be `Gaussian`, then the threshold at each spike parameter will be shown as the blue dashed line, as the algorithm with `Gaussian` prior cannot shrink the coefficients to zero automatically. The brown line stands for paths of finally selected regression parameters. From right to left, with the decreasing of spike parameter, values of coefficients tend to be stabilized.  
 
@@ -244,7 +243,6 @@ pathPlot(muss_L)
 pathPlot(muss_G)
 ```
 
-\\
 
 And the paths of $\theta$ and $\sigma$ can also be obtained if specified.
 
@@ -255,9 +253,6 @@ pathPlot(muss_L,path_of = "theta")
 ```{r fig.height=3.5, fig.width=5.3}
 pathPlot(muss_L,path_of = "sigma")
 ```
-
-
-\\
 
 
 If `return_g = TRUE`, then according to the returned `g_List`, we can draw plots for `g` over iterations for each specific `spike_param` with function `gPlot`. One must specify the value of `spike_param` (a single value) to obtain the plot and it must be from `spike_params` used in `MUSS`. If default `spike_params` is used in `MUSS`, one can check its value by calling `$spike_params` from the returned object. 
