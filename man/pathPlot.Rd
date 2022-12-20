@@ -7,7 +7,7 @@
 pathPlot(fit_obj, path_of = "beta")
 }
 \arguments{
-\item{fit_obj}{The fitted object from MUSS function.}
+\item{fit_obj}{The fitted object from 'MUSS' function.}
 
 \item{path_of}{Character. \code{path_of} = \code{"beta"}, \code{"theta"} or \code{"sigma"}.
 Default is \code{"beta"}.}

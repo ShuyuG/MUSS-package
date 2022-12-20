@@ -7,11 +7,11 @@
 posteriorX(Z, y, beta, sigma, tauList)
 }
 \arguments{
-\item{Z}{\eqn{n * p} covariate matrix with additive error
+\item{Z}{\eqn{n * p} covariate matrix with additive errors
 in each column (possibly \eqn{p>n}). It is assumed the
 measurement error model takes the form \eqn{Z = X + \Xi},
 where \eqn{X} is the unknown true design matrix and
-\eqn{\Xi} is the matrix of i.i.d Gaussian measurement error of mean \eqn{0}
+\eqn{\Xi} is the matrix of i.i.d Gaussian measurement errors of mean \eqn{0}
 and same variance within each column.}
 
 \item{y}{Numeric response vector from \eqn{n} observations.}
@@ -26,27 +26,29 @@ measurement error for p columns.}
 \value{
 'posteriorX' returns a list containing the following values:
 
-\item{hatX}{\eqn{n * p} matrix. The posterior expectation of \eqn{X}.}
+\item{hatX}{\eqn{n * p} matrix. The expectation of \eqn{X} conditional on
+\eqn{\bold{\beta}}, \eqn{\bold{y}}, \eqn{Z}, \eqn{\Lambda} and \eqn{\sigma}.}
 
-\item{hatSigma}{\eqn{p * p} matrix. The posterior variance of \eqn{\bold{x_i}},
-which is equivalent for each row of \eqn{X}.}
+\item{hatSigma}{\eqn{p * p} matrix. The variance of \eqn{\bold{x_i}} conditional on
+\eqn{\bold{\beta}}, \eqn{\bold{y}}, \eqn{Z}, \eqn{\Lambda} and \eqn{\sigma},
+which is equivalent for each \eqn{\bold{x_i}}.}
 
-\item{hatXX}{\eqn{p * p} matrix. The posterior expectation of \eqn{X^\top X}.
+\item{hatXX}{\eqn{p * p} matrix. The conditional expectation of \eqn{X^\top X}.
 \code{hatXX = t(hatX) * hatX + hatSigma}.}
 }
 \description{
-In regression models, assuming there are additive Gaussian measurement errors in each column of the design matrix
-\eqn{Z}, and \code{tauList} collects the variances of each column, function 'posteriorX' returns the posterior
-expectation as well as some related values for the true design matrix \eqn{X}.
+In ordinary regression model, assuming each column of the design matrix \code{Z} contains additive
+Gaussian measurement errors with known variance collected in \code{tauList}, function 'posteriorX'
+returns posterior expectation as well as some related values for the true design matrix \eqn{X}.
 
 More specifically, if we denote the measurement error matrix as \eqn{\Xi},
 then the measurement error model takes the form: \eqn{Z = X + \Xi}.
 Since we have \eqn{y_i|\bold{x_i},\bold{\beta},\sigma^2 \sim N(\bold{x_i^\top }\bold{\beta},\sigma^2)}
 and \eqn{\bold{x_i}|\bold{z_i}, \Lambda \sim N(\bold{z_i}, \Lambda)}
 where \eqn{\Lambda} is the diagonal matrix consists of \code{tauList},
-\code{posteriorX} computes the posterior expectation of \eqn{X},
-posterior variance of \eqn{\bold{x_i}} and posterior expectation of \eqn{X^\top X}
-conditioning on \eqn{\bold{\beta}}, \eqn{\bold{y}}, \eqn{Z}, \eqn{\Lambda} and \eqn{\sigma}.
+\code{posteriorX} computes the expectation of \eqn{X}, variance of \eqn{\bold{x_i}} and
+expectation of \eqn{X^\top X} conditioning on \eqn{\bold{\beta}}, \eqn{\bold{y}}, \eqn{Z},
+\eqn{\Lambda} and \eqn{\sigma}.
 
 This is part of E-step in the 'MUSS' function.
 }

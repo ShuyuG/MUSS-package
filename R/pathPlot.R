@@ -4,7 +4,7 @@
 #' over \code{spike_params}. If \code{beta_prior_type = "Gaussian"}, the thresholds
 #' will be displayed as well.
 #'
-#' @param fit_obj The fitted object from MUSS function.
+#' @param fit_obj The fitted object from 'MUSS' function.
 #' @param path_of Character. \code{path_of} = \code{"beta"}, \code{"theta"} or \code{"sigma"}.
 #' Default is \code{"beta"}.
 #' @import ggplot2

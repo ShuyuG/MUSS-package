@@ -1,19 +1,20 @@
 #' @title gPlot
 #' @description
-#' Plot \eqn{g(\bold{\beta^{(t+1)}},\theta^{(t+1)},\sigma^{(t+1)}|\bold{\beta^{(t)}},\theta^{(t)},
+#' Plot maximized \eqn{g(\bold{\beta},\theta,\sigma|\bold{\beta^{(t)}},\theta^{(t)},
 #' \sigma^{(t)})} over iterations at a specified spike parameter.
-#' \eqn{g(\bold{\beta},\theta,\sigma|\bold{\beta^{(t)}},\theta^{(t)},\sigma^{(t)})} is
-#' the expected value of the log likelihood function with respect to the latent
-#' variables \eqn{X} and \eqn{\bold{\gamma}}, conditioning on current
-#' estimated parameters.
+#' The function \eqn{g} is a concave lower bound for objective log-likelihood function at
+#' \eqn{\bold{\beta^{(t)}}}, \eqn{\theta^{(t)}} and \eqn{\sigma^{(t)}} by Jensen's Inequality.
+#' \eqn{\bold{\beta^{(t+1)}}}, \eqn{\theta^{(t+1)}} and \eqn{\sigma^{(t+1)}}
+#' are obtained by maximizing \eqn{g(\bold{\beta},\theta,\sigma|\bold{\beta^{(t)}},\theta^{(t)},
+#' \sigma^{(t)})}. See Vignette for more details.
+#'
 #'
 #' @param fit_obj Fitted object from function 'MUSS'.
-#' @param spike_param The value of the spike parameter that needed to be specified,
-#' which must be in \code{spike_params} designated in `MUSS` function.
-#' Each \code{spike_param} corresponds to a unique gPlot.
-#' If default \code{spike_params} is used in `MUSS`, one can check the values of
-#' \code{spike_params} by calling `$spike_params`
-#' from the returned object.
+#' @param spike_param The value of the spike parameter to be specified, which must be in
+#' \code{spike_params} designated in 'MUSS' function. Each \code{spike_param} corresponds
+#' to a unique gPlot. If default \code{spike_params} is used in function 'MUSS', one can
+#' check the value of \code{spike_params} by calling `$spike_params` from the returned
+#' object from function 'MUSS'.
 #' @export
 
 gPlot = function(fit_obj, spike_param){

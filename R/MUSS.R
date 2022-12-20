@@ -36,7 +36,7 @@
 #' \code{beta}. If not specified, \code{slab_param = spike_params[1] * 10}
 #' if \code{spike_params} is given; Otherwise, \code{slab_param = 1} by default.
 #'
-#' @param beta_init Vector. Initial value of \code{beta}.
+#' @param beta_init Vector. Initial value of regression coefficients \code{beta}.
 #' \code{beta_init = 0} by default.
 #'
 #' @param sigma_update Logical. Whether the variance of model error is updated or not.
@@ -46,7 +46,7 @@
 #' If not specified, \code{sigma} is initialized according to \code{sd(y)}.
 #'
 #' @param theta_init Numeric. The initial value of prior proportion of nonzero
-#' \eqn{\beta_j}'s. \code{theta_init} must be in \code{(0,1]}.
+#' `beta`. \code{theta_init} must be in \code{(0,1]}.
 #' Default is \code{0.5}.
 #'
 #' @param return_g Logical. Default is \code{FALSE}. If specified \code{TRUE},
@@ -71,16 +71,16 @@
 #' @returns
 #' `MUSS` returns a list containing the following values:
 #'
-#' \item{beta_path}{\eqn{L * p} matrix. Each row is the beta fitted at corresponding
+#' \item{beta_path}{\eqn{L * p} matrix. Each row is the `beta` fitted at corresponding
 #' \code{spike_param}. For Gaussian case, it is not thresholded.}
 #'
 #' \item{beta_indices}{Vector. Indices of selected nonzero regression parameters.}
 #'
 #' \item{beta_values}{Vector. Values of selected nonzero regression parameters.}
 #'
-#' \item{beta_output}{Vector of length \eqn{p}. Output full beta including zeros.
-#' For Laplacian case, it is the last row of beta_path. For Gaussian case, it is
-#' the thresholded result from last row of beta_path. }
+#' \item{beta_output}{Vector of length \eqn{p}. Full output `beta` including zeros.
+#' For Laplacian case, it is the last row of `beta_path`. For Gaussian case, it is
+#' the thresholded result from last row of `beta_path`. }
 #'
 #' \item{beta_thresholds}{Vector of length \eqn{L}. Threshold at each \code{spike_param},
 #' returned only when \code{"beta_prior_type" = "Gaussian"}.}
@@ -92,20 +92,20 @@
 #' \item{theta_path}{Vector of Length \eqn{L}. Estimated \code{theta} at each
 #' \code{spike_param}.}
 #'
-#' \item{g_List}{List of Length \eqn{L}. Each element of `g_List` contains
-#' the values of maximized objective function over iterations at
-#' corresponding \code{spike_param}.}
+#' \item{g_List}{List of Length \eqn{L}. Each element of `g_List` is a list containing
+#' values of maximized function \eqn{g} over iterations at corresponding
+#' \code{spike_param}.}
 #'
-#' \item{iter_nums}{Vector of Length \eqn{L}. Iteration numbers at each
+#' \item{iter_nums}{Vector of Length \eqn{L}. Number of Iterations at each
 #' \code{spike_param}.}
 #'
 #'
 #'
 #' @details
 #'
-#' Since 'MUSS' is built based on EM algorithm, it is possible to converge to local
-#' maximum values. Thus the result can be sensitive to the initial choices of \code{beta},
-#' \code{sigma} and \code{theta}.
+#' Since 'MUSS' is built based on EM algorithm, it is possible to converge to local but not
+#' global maximum values. Thus the result can be sensitive to the initial choices of
+#' `beta`, `sigma` and `theta`.
 #'
 #' In addition, the value of spike and slab parameters can be crucial
 #' to variable selection result in practice. We set some default values for
@@ -114,8 +114,9 @@
 #' \code{spike_params = exp(seq(log(slab_L),by=-0.3,length.out=20))[-1]}
 #' for \code{beta_prior_type = "Laplacian"},
 #' and \code{spike_params = exp(seq(log(slab_G),by=-0.5,length.out=20))[-1]}
-#' for \code{beta_prior_type = "Gaussian"} by default. If \code{slab_param} is
-#' also not specified, \code{slab_param = 1} by default.
+#' for \code{beta_prior_type = "Gaussian"} by default. If `slab_param` is
+#' also not specified, the `slab_param = 1` by default and the `spike_param` is
+#' set the same as the previous way.
 #' One can assign any valid values to \code{spike_params} and \code{slab_param}.
 #'
 #' @examples
