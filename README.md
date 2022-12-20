@@ -7,7 +7,7 @@ In high-dimensional sparse regression with measurement error in variables, assum
 In R terminal, type ```devtools::install_github("ShuyuG/MUSS-package")``` to install 'MUSS' package.
 
 ## Vignette
-[vignette](https://github.com/ShuyuG/MUSS-package/blob/master/inst/doc/Vignette.pdf)
+[Vignette](https://github.com/ShuyuG/MUSS-package/blob/master/inst/doc/Vignette.pdf)
 
 ## Manual
 [Manual](https://github.com/ShuyuG/MUSS-package/blob/master/inst/doc/MUSS_1.0.0.pdf)
