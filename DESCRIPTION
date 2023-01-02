@@ -6,7 +6,7 @@ Authors@R: c(
     person(given = "Bo", family = "Ning",  email = "bycning@ucdavis.edu", role = c("aut", "ctb"))
     )
 Author: Shuyu Guo [aut, cre] <guo_sy@outlook.com>,
-           Bo Ning [aut, ctb] <bycning@ucdavis.edu>
+        Bo Ning [aut, ctb] <bycning@ucdavis.edu>
 Description: In high-dimensional sparse regression with measurement error in variables, assuming 
     the errors are Normally distributed with mean 0 and errors for each variable have a specific 
     variance, then 'MUSS' can conduct variable selection for such case. 'MUSS' selects variables 
