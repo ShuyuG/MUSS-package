@@ -15,7 +15,7 @@ In high-dimensional sparse regression with measurement error in variables, assum
 [Manual](https://github.com/ShuyuG/MUSS-package/blob/master/inst/doc/MUSS_1.0.0.pdf)
 
 ## Simulation Results
-[Simulation Results](https://github.com/ShuyuG/MUSS-package/blob/master/inst/doc/MUSS_1.0.0.pdf)
+[Simulation Results](https://github.com/ShuyuG/MUSS-package/blob/master/inst/doc/Simulation_Results.pdf)
 
 ## Acknowledgement
 Thanks [Bo Y.-C. Ning](https://bo-ning.github.io/) for contributing original idea of 'MUSS' and discussion.
